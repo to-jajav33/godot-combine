@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://components/Player.gd" type="Script" id=1]
+[ext_resource path="res://images/player.png" type="Texture" id=2]
+[ext_resource path="res://images/nextColor.png" type="Texture" id=3]
+
+[node name="Player" type="RigidBody2D"]
+script = ExtResource( 1 )
+
+[node name="root" type="Node2D" parent="."]
+
+[node name="nextColors" type="Node2D" parent="root"]
+
+[node name="nextColor" type="Sprite" parent="root/nextColors"]
+position = Vector2( -24, 0 )
+texture = ExtResource( 3 )
+
+[node name="nextColor2" type="Sprite" parent="root/nextColors"]
+position = Vector2( -64, 0 )
+texture = ExtResource( 3 )
+
+[node name="nextColor3" type="Sprite" parent="root/nextColors"]
+position = Vector2( -104, 0 )
+texture = ExtResource( 3 )
+
+[node name="CurrentColor" type="Sprite" parent="root"]
+position = Vector2( -3, 0 )
+texture = ExtResource( 2 )
+offset = Vector2( 96, 0 )
