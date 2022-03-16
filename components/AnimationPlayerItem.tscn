@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "scale"
+length = 0.5
+
+[node name="AnimationPlayerItem" type="AnimationPlayer"]
+anims/scale = SubResource( 1 )
