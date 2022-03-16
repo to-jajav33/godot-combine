@@ -14,6 +14,10 @@ config/name="Combine"
 run/main_scene="res://components/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameStateManager="*res://components/GameStateManager.tscn"
+
 [display]
 
 window/size/resizable=false

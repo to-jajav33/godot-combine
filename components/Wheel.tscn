@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://components/Wheel.gd" type="Script" id=1]
 [ext_resource path="res://images/sun.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://images/cloud.png" type="Texture" id=4]
 [ext_resource path="res://images/snow.png" type="Texture" id=5]
 [ext_resource path="res://images/background.png" type="Texture" id=6]
+[ext_resource path="res://components/Item.tscn" type="PackedScene" id=7]
 
 [node name="Wheel" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,18 +16,22 @@ texture = ExtResource( 6 )
 
 [node name="items" type="Node2D" parent="."]
 
-[node name="Cloud" type="Sprite" parent="items"]
-position = Vector2( 0, -80 )
+[node name="Item" parent="items" instance=ExtResource( 7 )]
+
+[node name="Cloud" type="Sprite" parent="items/Item"]
 texture = ExtResource( 4 )
 
-[node name="Sun" type="Sprite" parent="items"]
-position = Vector2( 80, 0 )
+[node name="Item2" parent="items" instance=ExtResource( 7 )]
+
+[node name="Sun" type="Sprite" parent="items/Item2"]
 texture = ExtResource( 2 )
 
-[node name="Lightning" type="Sprite" parent="items"]
-position = Vector2( 0, 80 )
+[node name="Item3" parent="items" instance=ExtResource( 7 )]
+
+[node name="Lightning" type="Sprite" parent="items/Item3"]
 texture = ExtResource( 3 )
 
-[node name="Snow" type="Sprite" parent="items"]
-position = Vector2( -80, 0 )
+[node name="Item4" parent="items" instance=ExtResource( 7 )]
+
+[node name="Snow" type="Sprite" parent="items/Item4"]
 texture = ExtResource( 5 )
