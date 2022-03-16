@@ -11,6 +11,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func getGameState(paramId = 1):
+func getGameState(paramId = 1) -> GameState:
 	var id = str(paramId);
 	return _states.get(id,  preload("res://components/GameState.tscn").instance());
