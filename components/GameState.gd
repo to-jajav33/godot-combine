@@ -11,6 +11,7 @@ var _canClickAgain = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize();
 	pass # Replace with function body.
 
 
@@ -54,4 +55,9 @@ func patternClicked(id : int):
 func reset():
 	self.correctPattern = [];
 	self.currentPattern = [];
+	return;
+
+
+func addNewPattern():
+	self.currentPattern.append(randi() % 4);
 	return;
