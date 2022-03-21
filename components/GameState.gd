@@ -2,6 +2,9 @@ extends Node
 
 class_name GameState
 
+signal signal_play_pattern();
+signal signal_unblock_input();
+
 
 # Declare member variables here. Examples:
 var correctPattern = [];
@@ -24,9 +27,12 @@ func canClickAgain():
 
 func blockInput():
 	self._canClickAgain = false;
+	return;
 
 func unblockInput():
 	self._canClickAgain = true;
+	self.emit_signal("signal_unblock_input");
+	return;
 
 func patternClicked(id : int):
 	self.currentPattern.append(id);
@@ -59,5 +65,10 @@ func reset():
 
 
 func addNewPattern():
-	self.currentPattern.append(randi() % 4);
+	self.correctPattern.append(randi() % 4);
+	return;
+
+func playPattern():
+	self.blockInput();
+	self.emit_signal("signal_play_pattern", self.correctPattern);
 	return;

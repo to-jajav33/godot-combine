@@ -28,23 +28,29 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Item_input_event(_viewport : Viewport, event : InputEventMouse, _shape_idx):
-	if (_gamestate.canClickAgain()):
+	if (self._gamestate.canClickAgain()):
 		if (event.is_action_released("gameplay_select")):
 			emit_signal("signal_clicked", self.id);
 			var _isCorrect = _gamestate.patternClicked(self.id);
 	pass # Replace with function body.
 
 func onMouseEntered():
-	if (_gamestate.canClickAgain()):
+	print("mouse entered")
+	if (self._gamestate.canClickAgain()):
+		print("mouse entered worked")
 		$AnimationPlayer.play("scale");
 	return;
 
 func onMouseExited():
-	if (_gamestate.canClickAgain()):
+	if (self._gamestate.canClickAgain()):
 		$AnimationPlayer.play("default");
 	return;
 
 func onSignalClicked(paramId):
-	$AnimationPlayer.play("clicked");
+	self.playClickedAnim();
 	self._gamestate.patternClicked(paramId);
+	return;
+
+func playClickedAnim():
+	$AnimationPlayer.play("clicked");
 	return;
