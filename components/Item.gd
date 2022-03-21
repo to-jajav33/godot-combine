@@ -22,6 +22,8 @@ func _ready():
 	
 	$Sprite.texture = images[self.id];
 	
+	$AnimationPlayer.play("default");
+	
 	self.connect("mouse_entered", self, "onMouseEntered");
 	self.connect("mouse_exited", self, "onMouseExited");
 	self.connect("signal_clicked", self, "onSignalClicked");
