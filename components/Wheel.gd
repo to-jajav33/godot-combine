@@ -41,12 +41,11 @@ func _process(delta):
 		if (self.currentDelayCount <= 0.0):
 			var count = 0;
 			for child in $items.get_children():
-				if (count == self.patternIndexToPlay):
+				if (child.id == self._gameState.correctPattern[self.patternIndexToPlay]):
 					child.playClickedAnim();
 					self.currentDelayCount = self.delayBetweenPatternAnims;
 					self.patternIndexToPlay = self.patternIndexToPlay + 1;
 					if (self.patternIndexToPlay >= self.patternToPlay.size()):
-						print("done animating")
 						self.isPlaying = false;
 						self._gameState.unblockInput();
 					break;

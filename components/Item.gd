@@ -33,7 +33,6 @@ func _on_Item_input_event(_viewport : Viewport, event : InputEventMouse, _shape_
 	if (self._gamestate.canClickAgain()):
 		if (event.is_action_released("gameplay_select")):
 			emit_signal("signal_clicked", self.id);
-			var _isCorrect = _gamestate.patternClicked(self.id);
 	pass # Replace with function body.
 
 func onMouseEntered():

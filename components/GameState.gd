@@ -14,7 +14,6 @@ var _canClickAgain = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize();
 	pass # Replace with function body.
 
 
@@ -52,10 +51,16 @@ func patternClicked(id : int):
 	
 	if (isCorrect == false):
 		self.blockInput();
-	elif(self.currentPattern.size() == self.correctPattern.size()):
+	elif(self.currentPattern.size() >= self.correctPattern.size()):
+		self.currentPattern = [];
 		self.blockInput();
 		# get new pattern
+		self.addNewPattern();
 		# emit event to start new pattern animation
+		self.playPattern();
+	#else:
+		# continue
+		
 	return isCorrect;
 
 func reset():
@@ -65,6 +70,7 @@ func reset():
 
 
 func addNewPattern():
+	randomize();
 	self.correctPattern.append(randi() % 4);
 	return;
 
