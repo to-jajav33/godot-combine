@@ -35,11 +35,13 @@ func _on_Item_input_event(_viewport : Viewport, event : InputEventMouse, _shape_
 	pass # Replace with function body.
 
 func onMouseEntered():
-	$AnimationPlayer.play("scale");
+	if (_gamestate.canClickAgain()):
+		$AnimationPlayer.play("scale");
 	return;
 
 func onMouseExited():
-	$AnimationPlayer.play("default");
+	if (_gamestate.canClickAgain()):
+		$AnimationPlayer.play("default");
 	return;
 
 func onSignalClicked(paramId):
